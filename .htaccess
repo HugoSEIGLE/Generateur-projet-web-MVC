@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteRule ^$ view/index.php
+RewriteRule ^generate$ view/generate.php
