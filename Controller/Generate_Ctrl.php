@@ -89,6 +89,8 @@ class Gene
                                         $Nom_fichier = $Nom_view;
                                         $controller = $Nom_fichier . "Controller";
                                         $view = fopen("$chemin/view/$nom_pages.php", 'w');
+
+                                        // ECRITURE DE LA VUE
                                         if ($_SESSION['nb_tables'] > 0) {
                                             fwrite($view, "<?php
 
@@ -179,6 +181,8 @@ if ($_SESSION['nb_tables'] > 0) {
 mkdir("$chemin/Config");
 
 $core = fopen("$chemin/Config/Core.php", 'c+b');
+
+// ECRITURE DU CORE
 fwrite($core, "<?php 
 
 class Core{
@@ -195,6 +199,8 @@ class Core{
 }");
 
                                         $database = fopen("$chemin/Config/Database.php", 'c+b');
+
+                                        // ECRITURE DE LA BDD 
                                         fwrite($database, "<?php
 
 require('../Controller/functions/historisation.php');
@@ -265,6 +271,8 @@ class Database
                                             $Name_tables = ucfirst($nom_tables);
                                             $Name_page = $Name_tables . "Model";
                                             $model = fopen("$chemin/Model/$Name_page.php", 'c+b');
+
+                                            // ECRITURE DU MODEL 
                                             fwrite($model, "<?php
 
 // Permet d'avoir le fichier nommé contact un seul fois le rendre unique
@@ -299,6 +307,8 @@ class Model$Name_tables {
                                         $Name_pages = ucfirst($nom_pages);
                                         $Nom_fichier = $Name_pages . "Controller";
                                         $controller = fopen("$chemin/Controller/$Nom_fichier.php", 'c+b');
+
+                                        // ECRITURE CONTROLLER 
                                         fwrite($controller, "<?php
 
 
